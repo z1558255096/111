@@ -1,0 +1,79 @@
+# Tomcat
+server:
+  undertow:
+    buffer-size: 1024
+    direct-buffers: true
+    threads:
+      io: 8
+      worker: 128
+  port: 80
+  servlet:
+    context-path: /
+  compression:
+    enabled: true
+
+
+
+
+jasypt:
+  encryptor:
+    password: 3why
+
+logging:
+  level:
+    com.zyk.weixin.domain: debug
+
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.110.118/yundian?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: ENC(Wb2mjDP+qbMxLtmruvhPLE1xCNbpNV9iJ3uFVvRNLEfFppVYbmvqdyxsfd54QH4y)
+
+  redis:
+    database: 1
+    host: 81.68.174.59
+    port: 6379
+    password: wyw970912!
+    timeout: 5000ms
+    jedis:
+      pool:
+        max-active: 100
+        max-wait: -1ms
+        max-idle: 15
+        min-idle: 5
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+      enabled: true
+  mvc:
+    async:
+      request-timeout: 120000
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+    static-path-pattern: /**
+
+
+
+
+ok-http:
+  call-timeout: 10M
+  connection-pool-configuration:
+    connection-max-idle: 20
+    keep-alive-duration: 3M
+
+
+##pagehelper分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+test:
